@@ -14,7 +14,9 @@ const myVideo = document.createElement("video");
 myVideo.muted = true;
 //
 const peers = {};
-
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOMContentLoaded");
+});
 copy.onclick = () => {
   navigator.clipboard.writeText(`${href}${MEET_ID}`);
   const msg = copy.parentElement.querySelector(".msg");
@@ -37,7 +39,7 @@ createMeet.onclick = async () => {
 
   localStream = await navigator.mediaDevices.getUserMedia({
     video: true,
-    audio: true,
+    audio: false,
   });
 
   addVideoStream(myVideo, localStream);
